@@ -1,0 +1,31 @@
+.images {
+    display: flex;
+
+    /*sets the direction of the main axis and cross axis*/
+    /*values: row, row-reverse, cloumn, column-reverse*/
+    flex-direction: column;
+
+    /*Determines flexbox wrapping behavior*/
+    flex-wrap: wrap;
+
+    /*determines spacing of flex-items along the MAIN axis.*/
+    /*Values: flex-start, flex-end, center, space-around, space-between*/
+    justify-content: center;
+
+    /*determines the spacing of flex-items along the CROSS axis within a single row/column.*/
+    /*Values: stretch, flex-start, flex-end, center*/
+    align-items: center;
+
+    /*determines the layout of multiple wrapped lines. Has no effect if there aren't multiple rows of flex-items.*/
+    /*Values: flex-start, flex-end, center, stretch, baseline*/
+    align-content: center;
+
+    height: 500px;
+    width: 900px;
+    border: 3px solid blue;
+}
+
+img {
+    display: block;
+    height: 150px;
+}
