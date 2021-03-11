@@ -1,52 +1,96 @@
-// This makes an Http GET Request and returns a promise representing the
-// completion of the request
-const promise = fetch('https://alejos-todos-api.herokuapp.com/api/users')
-console.log(promise)
-// promise.then(response => console.log(response))
-// console.log('Hi there everybody!')
+// todo 3/10
+// cover fetch() with GET requests
+// .then()
+// .catch()
+// fetch with POST
+// the promise constructor
+// forms - posting data
 
+// https://alejos-todos-api.herokuapp.com/api/users
+//. https://catfact.ninja/fact
 
+// fetch(<url>)
+// .then(<callbackfunction>)
 
-// In order to access the result (i.e. the Http Response) of the request,
-// use the .then method
-// fetch('https://alejos-todos-api.herokuapp.com/api/users/nonexistentroute')
-//     .then(response => {
-//         if (!response.ok) { // boolean value - true if response status is a 200 status
-//             // Handle an error!
-//             console.log('oh no! there is a problem')
-//         }
-//             return response.json()  
-//     }, err => {
-//         console.log('oh no, error!')
-//     })
+// (res) => { res }
+// function (param) { param }
 
+// console.log("before fetch")
 
-fetch('https://alejos-todos-api.herokuapp.com/api/users')
-    .then(response => {
-        if (!response.ok) {
-            throw Error(response.status)
-        }
-        return response.json()
-    })
-    .then(body => {
-        console.log(body)
-    })
-    .catch(err => console.log('Oops, there was an error: ', err.message))
-    .then(/*if something goes wrong here, it won't be caught!*/)
+// let promise = fetch('https://alejos-todos-ap.herokuapp.com/api/users')
+// .then(response => {
+//   console.log("response:", response)
+//   return response.json()
+// })
+// .then(json => {
+//   console.log("json:", json)
+// })
+// .catch((err) => {
+//   console.log("error:", err)
+// })
 
+// console.log("after fetch")
 
+// let obj = { username: "bartholomew" }
+// console.log(obj)
 
-// fetch('https://alejos-todos-api.herokuapp.com/api/users')
-//     .then(
-//         response => console.log(response),
-//         err => console.log('Oops, there was an error: ', err.message)
-//     )
+// let string = JSON.stringify(obj)
+// console.log(string)
 
+// let newObj = JSON.parse(string)
+// console.log(newObj.username)
 
+// fetch("https://alejos-todos-api.herokuapp.com/api/users/signup", {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json"
+//   },
+//   body: string,
+// })
+//   .then((res) => {
+//     return res.json()
+//   })
+//   .then((json) => {
+//     console.log(json)
+//   })
+//   .catch((err) => {
+//     console.error(err)
+//   })
 
-// The response contains the information we are fetching!
+// console.log("this is all the javascript we have")
 
-// Anatomy of an Http response:
-    // status: a number that tells you how the request went
-    // headers: metadata describing the body of the response
-    // body: The meat. This is the data that we requested.
+let iPromiseToTellTheTruth = new Promise((success, failure) => {
+  let rand = Math.round(Math.random() * 10)
+
+  // go get the data / make request
+  // XMLHTTPrequest
+
+  // if request successful
+  if(rand > 5) {
+    success(rand)
+  }
+  // 
+  else {
+    failure("number was less than 5")
+  }
+})
+
+console.log(iPromiseToTellTheTruth)
+
+iPromiseToTellTheTruth
+.then((response) => {
+  console.log(response)
+  console.log("truth told")
+})
+.catch((error) => {
+  console.error(error)
+  console.log("lie told")
+})
+
+// boolean?
+// Pending?????
+// Promise
+
+// make 10 requests to different places
+// once all 10 are done, do some success thing
+
