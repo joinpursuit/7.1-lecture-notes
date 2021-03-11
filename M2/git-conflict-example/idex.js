@@ -1,6 +1,8 @@
 console.log('hello there')
 
+let age = 300
 
-function exampleFunc() {
-    return 5
+
+function anotherFunc() {
+    console.log('wut')
 }
