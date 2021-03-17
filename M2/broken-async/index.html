@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Broken Async Code</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="1.randomPuppy.js"></script>
+    <script src="2.dogBreedImages.js"></script>
+    <script src="3.breakingBadQuotes.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Problem One: Fix the Random Puppy Button</h1>
+
+    <section id="puppies">
+      <button class="flex-item">New Random Puppy!</button>
+      <img
+        class="puppy flex-item"
+        src="https://images.dog.ceo/breeds/papillon/n02086910_8091.jpg"
+        alt="A cute puppy"
+      />
+    </section>
+
+    <h1>Problem Two: Fix the Select a Dog Breed Button</h1>
+    <section id="dog-breeds">
+      <select class="flex-item">
+        <option value="---">---</option>
+      </select>
+      <img src="" alt="A Dog" class="puppy flex-item" />
+    </section>
+
+    <h1>Problem Three: Fix the Breaking Bad Quote Generator</h1>
+    <section id="breaking-bad-quotes">
+      <button>New Quote!</button>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+section {
+    border: 2px solid gray;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-item {
+    margin: 10px;
+}
+
+.puppy {
+    width: 300px;
+}
+
+#breaking-bad-quotes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quote-card {
+    width: 350px;
+    text-align: center;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quote-image {
+    width: 300px;
+}
+
