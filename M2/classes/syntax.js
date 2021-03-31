@@ -1,0 +1,161 @@
+
+
+// let userOne = {
+//   name: "Anne",
+//   userId: 6021
+// }
+
+// let userTwo = {
+//   name: "Ben",
+//   userId: 6022
+// }
+
+// let userThree = {
+//   name: "Cal",
+//   userId: 6023
+// }
+
+let userFour = {
+  name: "Dan",
+  userID: 6024
+}
+// console.log(userFour)
+
+// let userArray = [userOne, userTwo, userThree, userFour]
+
+// userArray.forEach(user => {
+//   console.log(user.userId)
+// })
+
+function User(name, userId) {
+  this.name = name
+  this.userId = userId
+}
+
+let userOne = new User("jimmy", 1234)
+
+// console.log(userOne)
+// console.log(userOne.name)
+
+// {
+//   name: "",
+//   userId: ""
+// }
+
+class UserClass {
+  constructor(name, userId, hobbies) {
+    this.name = name
+    this.userId = userId
+    this.student = true
+    this.hobbies = hobbies
+  }
+}
+
+// let userClassOne = new UserClass("jimmy", 1234)
+// let userClassTwo = new UserClass("alex", 4567)
+// let userClassThree = new UserClass("daniel", 123, "hello")
+
+// console.log(userClassOne.userId)
+// console.log(userClassOne.student)
+// console.log(userClassOne.hobbies)
+
+// console.log(userClassTwo.userId)
+
+// console.log(userClassThree.hobbies)
+
+// let userArray = [userClassOne, userClassTwo, userClassThree]
+// console.log(userArray)
+
+// let userClassFour = new UserClass("geormary", 3333, "astrology")
+// userArray.push(userClassFour)
+
+let incomingUsers = [{name: "jimmy", userId: 1111}, {name: "myra", userId: 3333}]
+let classUsers = []
+incomingUsers.forEach(user => {
+  let temp = new UserClass(user.name, user.userId)
+  classUsers.push(temp)
+})
+
+// console.log(classUsers[1].name)
+
+// class Animal {
+//   constructor(name) {
+//     this.name = name
+//     this.hunger = 10
+//   }
+
+//   speak() {
+//     console.log("I am " + this.name)
+//   }
+
+//   feed(num) {
+//     this.hunger -= num
+//   }
+
+// }
+
+// class Dog extends Animal {
+//   constructor(name, hairLength) {
+//     super(name)
+//     this.hairLength = hairLength
+//   }
+
+//   bark() {
+//     console.log("woof")
+//   }
+
+//   feed() {
+//   }
+// }
+
+// let shiba = new Dog("waow", "short")
+// console.log(shiba.name)
+// console.log(shiba.hairLength)
+// console.log(shiba.hunger)
+// shiba.feed(5)
+// console.log(shiba.hunger)
+// shiba.speak()
+// shiba.bark()
+
+// let an = {
+//   name: "spot",
+//   speak: function() {
+//     console.log(this.name)
+//   }
+// }
+
+// an.speak()
+
+// let woof = new Animal("spot")
+// console.log(woof.hunger)
+// woof.feed(5)
+// woof.energy = 10
+// console.log(woof.hunger)
+// console.log(woof.energy)
+
+// let meow = new Animal("harry")
+// console.log(meow.energy)
+
+// class Car {
+//   constructor(color) {
+//     this.color = color
+//     this.wheels = 4
+//     this.engine = true
+//   }
+
+//   paint(color) {
+//     this.color = color
+//   }
+
+//   static getWheels() {
+//     return "i have 4 wheels"
+//   }
+// }
+
+// let subaru = new Car("white")
+// subaru.paint("red")
+// subaru.getWheels()
+
+// console.log(Car.getWheels())
+// console.log(Car.paint())
+
