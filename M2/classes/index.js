@@ -6,6 +6,7 @@ button.addEventListener("click", getShow)
 class TVShow {
   constructor(searchParam) {
     this.searchParam = searchParam
+    this.iLoveTV = true
   }
 
   async runSearchQuery() {
@@ -13,11 +14,15 @@ class TVShow {
   }
 
   get result() {
-    return this.rawResult.data[0].show.name
+    return this.rawResult[0].show.name
+  }
+
+  get tvLove() {
+    return `Is it true I love TV? ${this.iLoveTV}`
   }
 
   set showResult(val) {
-    return this.rawResult = val
+    return this.rawResult = val.data
   }
 }
 
@@ -27,6 +32,7 @@ async function getShow() {
   console.log(sopranos.showResult)
   console.log(sopranos.rawResult)
   console.log(sopranos.result)
+  console.log(sopranos.tvLove)
 }
 
 // runSearchQuery()
