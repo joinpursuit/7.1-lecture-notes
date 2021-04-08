@@ -1,6 +1,7 @@
 
 import React from 'react'
 
+// refactor to be a classComponent
 function ProductItem(props) {
   const { name, price, manufacturer } = props
 
