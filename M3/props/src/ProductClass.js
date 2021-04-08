@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 // refactor to be a functional component
-export class ProductClass extends Component {
+class ProductClass extends Component {
 
   // constructor() {
   //   super()

@@ -1,4 +1,3 @@
-import logo from "./logo.svg"
 import User from "./User"
 
 function App() {

@@ -10,9 +10,10 @@ const ProductPage = () => {
     { name: "Sk8-Hi", manufacturer: "Vans", price: 60 }
   ];
 
-  const productsAsAClass = products.map(product => {
+  const productsAsAClass = products.map((product, i) => {
     return (
       <ProductClass 
+        key={i}
         name={product.name}
         price={product.price}
         manufacturer={product.manufacturer}
@@ -20,9 +21,10 @@ const ProductPage = () => {
     )
   })
 
-  const listItems = products.map(product => {
+  const listItems = products.map((product, i) => {
     return (
       <ProductItem 
+        key={i}
         name={product.name}
         price={product.price}
         manufacturer={product.manufacturer}
