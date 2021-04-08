@@ -1,5 +1,6 @@
 // import React from 'react'
 import ProductItem from './ProductItem'
+import ProductClass from './ProductClass'
 
 const ProductPage = () => {
   const products = [
@@ -8,6 +9,16 @@ const ProductPage = () => {
     { name: "Classic Leather", manufacturer: "Reebok", price: 120 },
     { name: "Sk8-Hi", manufacturer: "Vans", price: 60 }
   ];
+
+  const productsAsAClass = products.map(product => {
+    return (
+      <ProductClass 
+        name={product.name}
+        price={product.price}
+        manufacturer={product.manufacturer}
+      />
+    )
+  })
 
   const listItems = products.map(product => {
     return (
@@ -22,6 +33,7 @@ const ProductPage = () => {
   return (
     <div>
       <ul>{listItems}</ul>
+      <ul>{productsAsAClass}</ul>
     </div>
   )
 }
