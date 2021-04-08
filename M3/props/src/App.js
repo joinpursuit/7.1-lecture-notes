@@ -1,15 +1,23 @@
-import logo from './logo.svg';
-import User from './User'
+import logo from "./logo.svg"
+import User from "./User"
 
 function App() {
   let userDetails = {
     name: "Jimmy B",
     userId: 7348,
-    email: "jimmy@pursuit.org"
+    email: "jimmy@pursuit.org",
   }
 
-  return <User name={userDetails.name} />
-
+  // uppercase letter === component
+  // return (
+  //   <User
+  //     name={userDetails.name}
+  //     userId={userDetails.userId}
+  //     email={userDetails.email}
+  //   />
+  // )
+  // equivalent
+  return <User {...userDetails} />
 }
 
-export default App;
+export default App
