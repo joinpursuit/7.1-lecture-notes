@@ -2,6 +2,7 @@ import logo from "./logo.svg"
 import "./App.css"
 
 import React, { Component } from "react"
+import TodoList from "./TodoList"
 
 // set up pre-defined to-dos
 // in an array
@@ -58,7 +59,6 @@ export class App extends Component {
     // with the position in this.state.todos
     console.log("i was clicked on")
 
-
     let newState = [...this.state.todos]
     newState[e.target.dataset.index].complete = true
 
@@ -80,27 +80,11 @@ export class App extends Component {
     return (
       <div>
         <h1>Todo list</h1>
-        <ul>
-          {this.state.todos.map((todo, i) => {
-            let completed = ""
-            if (todo.complete) {
-              completed = "completed"
-            }
-
-            return (
-              <>
-              <li
-                className={completed}
-                onClick={this.completeTodo}
-                data-index={i}
-              >
-                {todo.name}
-              </li>
-              <button onClick={this.deleteTodo} data-index={i}>Delete</button>
-              </>
-            )
-          })}
-        </ul>
+        <TodoList
+          todos={this.state.todos}
+          completeTodo={this.completeTodo}
+          deleteTodo={this.deleteTodo}
+        />
         <button onClick={this.addTodo}>Add todo</button>
       </div>
     )
