@@ -13,6 +13,7 @@ function TodoList(props) {
 
         return (
           <TodoItem
+            key={i}
             todo={todo}
             completed={completed}
             index={i}
