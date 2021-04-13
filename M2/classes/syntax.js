@@ -79,6 +79,11 @@ incomingUsers.forEach(user => {
 // console.log(classUsers[1].name)
 
 class Animal {
+
+  // one parameter - name
+  // this depends on something being passed in
+  // let a = new Animal("a name here")
+  // a.name === "a name here"
   constructor(name) {
     this.name = name
     this.hunger = 10
@@ -93,6 +98,10 @@ class Animal {
   }
 }
 
+let a = new Animal("sparky")
+console.log(a.hunger)
+a.feed(3)
+console.log(a.hunger)
 // let animal = {
 //   name: "spot",
 //   speak: function() {
@@ -100,8 +109,13 @@ class Animal {
 //   }
 // }
 
+
+
 class Dog extends Animal {
+
+  // name === "waow"
   constructor(name, hairLength) {
+    // name === "waow"
     super(name)
     this.hairLength = hairLength
   }
