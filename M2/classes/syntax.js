@@ -51,17 +51,17 @@ class UserClass {
   }
 }
 
-// let userClassOne = new UserClass("jimmy", 1234)
+let userClassOne = new UserClass("jimmy", 1234)
 // let userClassTwo = new UserClass("alex", 4567)
-// let userClassThree = new UserClass("daniel", 123, "hello")
+let userClassThree = new UserClass("daniel", 123, "hello")
 
-// console.log(userClassOne.userId)
-// console.log(userClassOne.student)
-// console.log(userClassOne.hobbies)
+console.log(userClassOne)
+console.log(userClassOne.student)
+console.log(userClassOne.hobbies)
 
 // console.log(userClassTwo.userId)
 
-// console.log(userClassThree.hobbies)
+console.log(userClassThree.hobbies)
 
 // let userArray = [userClassOne, userClassTwo, userClassThree]
 // console.log(userArray)
@@ -78,43 +78,64 @@ incomingUsers.forEach(user => {
 
 // console.log(classUsers[1].name)
 
-// class Animal {
-//   constructor(name) {
-//     this.name = name
-//     this.hunger = 10
-//   }
+class Animal {
 
-//   speak() {
-//     console.log("I am " + this.name)
-//   }
+  // one parameter - name
+  // this depends on something being passed in
+  // let a = new Animal("a name here")
+  // a.name === "a name here"
+  constructor(name) {
+    this.name = name
+    this.hunger = 10
+  }
 
-//   feed(num) {
-//     this.hunger -= num
-//   }
+  speak() {
+    return "I am " + this.name
+  }
 
+  feed(num) {
+    this.hunger -= num
+  }
+}
+
+let a = new Animal("sparky")
+console.log(a.hunger)
+a.feed(3)
+console.log(a.hunger)
+// let animal = {
+//   name: "spot",
+//   speak: function() {
+//     return "I am " + this.name 
+//   }
 // }
 
-// class Dog extends Animal {
-//   constructor(name, hairLength) {
-//     super(name)
-//     this.hairLength = hairLength
-//   }
 
-//   bark() {
-//     console.log("woof")
-//   }
 
-//   feed() {
-//   }
-// }
+class Dog extends Animal {
 
-// let shiba = new Dog("waow", "short")
-// console.log(shiba.name)
-// console.log(shiba.hairLength)
-// console.log(shiba.hunger)
-// shiba.feed(5)
-// console.log(shiba.hunger)
-// shiba.speak()
+  // name === "waow"
+  constructor(name, hairLength) {
+    // name === "waow"
+    super(name)
+    this.hairLength = hairLength
+  }
+
+  bark() {
+    return "woof"
+  }
+
+  feed() {
+  }
+}
+
+let shiba = new Dog("waow", "short")
+console.log(shiba.name)
+console.log(shiba.hairLength)
+console.log(shiba.hunger)
+shiba.feed(5)
+console.log(shiba.hunger)
+console.log(shiba.bark())
+console.log(shiba.speak())
 // shiba.bark()
 
 // let an = {
@@ -126,7 +147,9 @@ incomingUsers.forEach(user => {
 
 // an.speak()
 
-// let woof = new Animal("spot")
+let woof = new Animal("spot")
+console.log(woof)
+console.log(woof.speak())
 // console.log(woof.hunger)
 // woof.feed(5)
 // woof.energy = 10
