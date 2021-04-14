@@ -1,0 +1,19 @@
+.SignupForm {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.SignupForm > label,
+.SignupForm > input {
+  display: block;
+}
+
+.SignupForm > label {
+  margin-top: 20px;
+}
+
+.SignupForm > button[type="submit"] {
+  margin-top: 100px;
+}
