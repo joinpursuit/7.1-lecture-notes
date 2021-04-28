@@ -1,8 +1,8 @@
 // GOAL: add another text input for the user's last name.
 // Checklist:
-//       - update the initial state in the constructor,
+//       - update the initial state in the constructor (you'll need a state variable for user's last name)
 //       - create an event handler to update state when the lastName input changes
-//       - update the render method to render a controlled input
+//       - update the render method with an input for user's last name
 //       - update the handleSubmit method to alert the user with their first AND last name
 
 import { Component } from "react";
