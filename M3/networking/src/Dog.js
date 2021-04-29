@@ -1,8 +1,11 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 
-// Dog.componentDidMount
-// Dog.constructor
+// add a text input
+// that specifies the number of images
+// that number goes on the end of the dog url
+// https://dog.ceo/api/breeds/image/random
+// https://dog.ceo/api/breeds/image/random/5
 
 export class Dog extends Component {
 
@@ -10,20 +13,28 @@ export class Dog extends Component {
     super()
 
     this.state = {
-      imgURL: "",
+      imgURL: [],
       catURL: ""
     }
+    console.log("Dog constructor ")
   }
 
   componentDidMount() {
+    console.log("Dog componentDidMount")
     this.getDogImage()
     this.getCatImage()
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log("Dog componentDidUpdate")
+  //   console.log(prevProps, prevState)
+  //   console.log(this.props)
+  // }
+
   getDogImage = () => {
-    axios.get("https://dog.ceo/api/breeds/image/random")
+    axios.get(`https://dog.ceo/api/breeds/image/random/${this.props.dogCount}`)
     .then(response => {
-      console.log(response)
+      // console.log(response)
       this.setState({
         imgURL: response.data.message
       })
@@ -32,19 +43,22 @@ export class Dog extends Component {
 
   getCatImage = async () => {
     let catImage = await axios.get("https://aws.random.cat/meow")
-    console.log(catImage)
+    // console.log(catImage)
     this.setState({
       catURL: catImage.data.file
     })
   }
 
   render() {
+    console.log("Dog render")
     return (
       <div>
         <h2>A beautiful dog:</h2>
-        <img src={this.state.imgURL} alt="cute dog"/>
+        {this.state.imgURL.map((dogImg) => {
+          return <img src={dogImg} alt="cute dog"/>
+        })}
         <img src={this.state.catURL} alt="cute cat"/>
-        <button>Click for new dog</button>
+        <button onClick={this.getDogImage}>Click for new dog</button>
       </div>
     )
   }
