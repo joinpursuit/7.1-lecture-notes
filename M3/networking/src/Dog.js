@@ -51,12 +51,13 @@ export class Dog extends Component {
 
   render() {
     console.log("Dog render")
+    let dogList = this.state.imgURL.map((dogImg, i) => {
+      return <img src={dogImg} key={i} alt="cute dog"/>
+    })
     return (
       <div>
         <h2>A beautiful dog:</h2>
-        {this.state.imgURL.map((dogImg) => {
-          return <img src={dogImg} alt="cute dog"/>
-        })}
+        {dogList}
         <img src={this.state.catURL} alt="cute cat"/>
         <button onClick={this.getDogImage}>Click for new dog</button>
       </div>

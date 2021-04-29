@@ -63,5 +63,17 @@ render()
     its empty so nothing appears
 
 componentDidMount()
-  triggers network request
+  triggers network request this.getDogImage()
+
+this.getDogImage()
+  gets response which is 
+
+  ```json
+  {"message":["https:\/\/images.dog.ceo\/breeds\/frise-bichon\/jh-ezio-2.jpg"],"status":"success"}
+  ```
   
+  calls this.setState( { imgURL: message } )
+
+render() 
+  map over this.state.imgURL which has 1 item in it
+  now a dog appears
