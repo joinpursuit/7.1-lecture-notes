@@ -3,4 +3,10 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 
 // TODO: Wrap App in BrowserRouter component
-render(<App />, document.getElementById("root"));
+render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+
+  document.getElementById("root")
+);

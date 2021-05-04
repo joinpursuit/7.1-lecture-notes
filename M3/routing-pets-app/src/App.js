@@ -1,6 +1,10 @@
-import { Link, Route } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
 import Home from "./Components/Home";
 import Pets from "./Components/Pets/Pets";
+
+const NotFound = () => {
+  return <h1>404: Not Found</h1>;
+};
 
 const App = () => {
   return (
@@ -11,8 +15,12 @@ const App = () => {
         <Link to="/pets">Pets</Link>
       </nav>
       {/* Use Switch component for EXCLUSIVE routing */}
-      <Route path="/" component={Home} />
-      <Route path="/pets" component={Pets} />
+      <Switch>
+        <Route path="/pets" component={Pets} />
+        <Route path="/skills" component={() => <h1>SKILLS</h1>}></Route>
+        <Route path="/" component={Home} />
+        <Route component={NotFound} />
+      </Switch>
     </div>
   );
 };

@@ -21,6 +21,7 @@ First, checkout the render method to see how it works. Then:
 ## YOU DO
 
 In Pets.js, add a route named `/pets/random/:num`.
+
 This route should render an `h1` that says: "You have requested {num} pet images".
 
 For example, if you visit `localhost:3000/pets/random/5` you should see a heading that reads "You have requested 5 pet images".

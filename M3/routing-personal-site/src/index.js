@@ -3,4 +3,12 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 
 // TODO: Use BrowserRouter Component to keep UI in sync with URL
-render(<App />, document.getElementById("root"));
+render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById("root")
+);
+
+// <img />
+// <div>CONTENT</div>
