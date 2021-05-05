@@ -1,0 +1,20 @@
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1
+workflows:
+  build:
+    jobs:
+      - cypress/run:
+          spec: cypress/integration/lab/*
+          start: npm start
+          post-steps:
+            - store_test_results:
+                path: ./reports/junit
+            - store_artifacts:
+                path: cypress/videos
+            - store_artifacts:
+                path: cypress/screenshots
+            - run:
+                name: Notify Test Results
+                command: node ./scripts/parseJunit.js
+                when: always
