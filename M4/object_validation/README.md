@@ -1,8 +1,4 @@
-# Writing Object Validations with [Joi](https://github.com/sideway/joi)
-
-## Joi - a most powerful schema description language and data validator for JS.
-
-This demo provides a walkthrough of using the Joi npm package to validate objects in `JS`.
+# Writing Object Validations
 
 ---
 
@@ -28,7 +24,6 @@ Read more about common data checks: [What is Database Validation?](https://corpo
 ## Getting Started
 
 - In the terminal, navigate to a local `npm` project folder
-- `$npm install joi`
 
 **User Schema**
 
