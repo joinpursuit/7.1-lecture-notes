@@ -16,9 +16,9 @@ reviews.get("/", async (req, res) => {
   try {
     const allReviews = await getAllReviews();
     console.log(`controller function call: ${allReviews}`);
-    res.json(allReviews);
+    res.status(200).json(allReviews);
   } catch (e) {
-    res.statusCode(404).statusMessage(e);
+    res.status(404).statusMessage(e);
   }
 });
 
@@ -27,7 +27,7 @@ reviews.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const review = await getReview(id);
-    res.json(review);
+    res.status(200).json(review);
   } catch (e) {
     res.status(404).statusMessage(e);
   }
@@ -37,7 +37,7 @@ reviews.get("/:id", async (req, res) => {
 reviews.post("/", async (req, res) => {
   try {
     const review = await newReview(req.body);
-    res.json(review);
+    res.status(200).json(review);
   } catch (e) {
     res.status(404).statusMessage(e);
   }
@@ -48,7 +48,7 @@ reviews.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const updatedReview = await updateReview(id, req.body);
-    res.json(updatedReview);
+    res.status(200).json(updatedReview);
   } catch (e) {
     res.status(404).statusMessage(e);
   }
@@ -59,7 +59,7 @@ reviews.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const deletedReview = await deleteReview(id);
-    res.json(deletedReview);
+    res.status(200).json(deletedReview);
   } catch (e) {
     res.status(404).statusMessage(e);
   }
