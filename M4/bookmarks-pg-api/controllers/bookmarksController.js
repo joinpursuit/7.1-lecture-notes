@@ -1,6 +1,6 @@
 // DEPENDENCIES
 const express = require("express");
-const bookmarks = express.Router();
+const bookmarks = express.Router({ mergeParams: true });
 const {
   getAllBookmarks,
   getBookmark,
