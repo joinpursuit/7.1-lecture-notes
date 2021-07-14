@@ -2,7 +2,7 @@
 const express = require("express");
 const cors = require("cors");
 const bookmarksController = require("./controllers/bookmarksController.js");
-const bookmarks = require("./controllers/bookmarksController.js");
+const reviewsController = require("./controllers/reviewsController.js");
 const morgan = require("morgan");
 
 // CONFIGURATION
@@ -19,6 +19,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/bookmarks", bookmarksController);
+
+app.use("/reviews", reviewsController);
 
 // 404 PAGE
 app.get("*", (req, res) => {
