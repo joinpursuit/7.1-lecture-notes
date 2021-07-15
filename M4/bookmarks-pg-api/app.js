@@ -20,8 +20,6 @@ app.get("/", (req, res) => {
 
 app.use("/bookmarks", bookmarksController);
 
-app.use("/reviews", reviewsController);
-
 // 404 PAGE
 app.get("*", (req, res) => {
   res.status(404).send("Page Not FOUND!");

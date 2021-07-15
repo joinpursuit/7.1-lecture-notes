@@ -4,9 +4,12 @@ const db = require("../db/dbConfig.js");
 // QUERIES
 
 /* INDEX */
-const getAllReviews = async () => {
+const getAllReviews = async (bookmarkId) => {
   try {
-    const allReviews = await db.any("SELECT * FROM reviews");
+    const allReviews = await db.any(
+      "SELECT * FROM reviews WHERE bookmark_id=$1",
+      bookmarkId
+    );
     return allReviews;
   } catch (e) {
     return e;
@@ -14,9 +17,12 @@ const getAllReviews = async () => {
 };
 
 /* SHOW */
-const getReview = async (id) => {
+const getReview = async (bookmarkId, id) => {
   try {
-    const oneReview = await db.one("SELECT * FROM reviews WHERE id=$1", id);
+    const oneReview = await db.one(
+      "SELECT * FROM reviews WHERE id=$1 AND bookmark_id=$2",
+      [id, bookmarkId]
+    );
     return oneReview;
   } catch (e) {
     return e;
@@ -24,7 +30,7 @@ const getReview = async (id) => {
 };
 
 // CREATE
-const newReview = async (review) => {
+const newReview = async (bookmarkId, review) => {
   try {
     const newReview = await db.one(
       `
@@ -34,13 +40,7 @@ const newReview = async (review) => {
       ($1, $2, $3, $4, $5)
       RETURNING *
       `,
-      [
-        review.reviewer,
-        review.title,
-        review.content,
-        review.rating,
-        review.bookmark_id,
-      ]
+      [review.reviewer, review.title, review.content, review.rating, bookmarkId]
     );
     return newReview;
   } catch (e) {
@@ -49,13 +49,13 @@ const newReview = async (review) => {
 };
 
 /* UPDATE */
-const updateReview = async (id, review) => {
+const updateReview = async (bookmarkId, id, review) => {
   try {
     const updatedReview = await db.one(
       `
       UPDATE reviews
-      SET reviewer=$1, title=$2, content=$3, rating=$4, bookmark_id=$5
-      WHERE id=$6
+      SET reviewer=$1, title=$2, content=$3, rating=$4
+      WHERE id=$6 AND bookmark_id=$5
       RETURNING *
       `,
       [
@@ -63,7 +63,7 @@ const updateReview = async (id, review) => {
         review.title,
         review.content,
         review.rating,
-        review.bookmark_id,
+        bookmarkId,
         id,
       ]
     );
@@ -74,15 +74,15 @@ const updateReview = async (id, review) => {
 };
 
 /* DELETE */
-const deleteReview = async (id) => {
+const deleteReview = async (bookmarkId, id) => {
   try {
     const deletedReview = await db.one(
       `
       DELETE FROM reviews
-      WHERE id=$1
+      WHERE id=$1 AND bookmark_id=$2
       RETURNING *
       `,
-      id
+      [id, bookmarkId]
     );
     return deletedReview;
   } catch (e) {

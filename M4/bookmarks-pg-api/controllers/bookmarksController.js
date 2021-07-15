@@ -1,6 +1,7 @@
 // DEPENDENCIES
 const express = require("express");
 const bookmarks = express.Router({ mergeParams: true });
+const reviewsController = require("./reviewsController.js");
 const {
   getAllBookmarks,
   getBookmark,
@@ -111,6 +112,8 @@ bookmarks.delete("/:id", async (req, res, next) => {
     next(e);
   }
 });
+
+bookmarks.use("/:bookmarkId/reviews", reviewsController);
 
 // ERROR HANDLING
 bookmarks.use(customErrorHandler);
