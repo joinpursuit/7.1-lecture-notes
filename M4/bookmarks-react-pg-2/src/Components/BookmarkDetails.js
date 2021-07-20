@@ -3,6 +3,7 @@ import { withRouter, Link } from "react-router-dom";
 import axios from "axios";
 import { apiURL } from "../util/apiURL";
 import { toast } from "react-toastify";
+import Reviews from "./Reviews.js";
 
 const API = apiURL();
 
@@ -51,6 +52,7 @@ function BookmarkDetails({ history, match }) {
         <button>Edit</button>
       </Link>
       <button onClick={handleDelete}>Delete</button>
+      <Reviews />
     </article>
   );
 }
