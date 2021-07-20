@@ -69,3 +69,4 @@ _**Hint:** Once you've completely debugged `debugging.js` a message will render 
 ## Going Further
 
 - The [Google Developers Website](https://developers.google.com/web/tools/chrome-devtools/javascript/) provides detailed documentation on **Chrome Dev Tools** and **Debugger**
+  - Checkout this super useful documentation on how to [Pause Your Code With Breakpoints](https://developer.chrome.com/docs/devtools/javascript/breakpoints/)
