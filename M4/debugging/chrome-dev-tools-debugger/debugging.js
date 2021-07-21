@@ -4,7 +4,7 @@ buggyCode();
 
 const buggyCode = () => {
   var a = 2;
-  let b == 4;
+  let b = 4;
   let c = { width: 5, height: 7};
   let d = 100;
   let e = 13;
@@ -45,7 +45,7 @@ const addTwo = (x, y) => {
 };
 
 const printWidth = (x) => {
-  console.log("x is ", x.getWidth(), "inches wide.');
+  console.log("x is ", x.getWidth(), "inches wide.");
 };
 
 const isBigNumber = (x) => {
