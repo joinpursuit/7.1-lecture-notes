@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 });
 
 const furnitureController = require("./controllers/furnitureController.js");
-app.use("/furniture_pieces", furnitureController);
+app.use("/furniture-pieces", furnitureController);
 
 // EXPORT
 module.exports = app;
