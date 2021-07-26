@@ -46,8 +46,12 @@ const validateBookmark = (req, res, next) => {
 
 // INDEX
 bookmarks.get("/", async (req, res) => {
-  const allBookmarks = await getAllBookmarks();
-  res.json(allBookmarks);
+  try {
+    const allBookmarks = await getAllBookmarks();
+    res.json(allBookmarks);
+  } catch (e) {
+    res.status(404).json({ payload: "Resource not found.", error: e });
+  }
 });
 
 // SHOW
