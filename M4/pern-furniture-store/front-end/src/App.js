@@ -4,6 +4,7 @@ import Show from "./Pages/Show";
 import Index from "./Pages/Index";
 import New from "./Pages/New";
 import Home from "./Pages/Home";
+import FourOFour from "./Pages/FourOFour";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path="/furniture/:id">
             <Show />
+          </Route>
+          <Route path="/not-found">
+            <FourOFour />
           </Route>
         </Switch>
       </main>

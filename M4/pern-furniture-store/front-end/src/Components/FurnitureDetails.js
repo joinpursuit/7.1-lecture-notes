@@ -1,21 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
+import { apiURL } from "../util/apiURL.js";
+import axios from "axios";
+const API = apiURL();
 
 function FurnitureDetails() {
-  const [furniturePiece, setFurniturePiece] = useState({
-    id: 1,
-    name: "Googoobund",
-    price: 13.0,
-    description: "an amazing chair",
-    is_flat_pack: true,
-    year: 1943,
-    model_number: 2384,
-  }); // TODO: remove fake data, add empty [] in dynamic steps
+  const [furniturePiece, setFurniturePiece] = useState([]);
 
-  // TODO: destructure an id using hooks
+  const { id } = useParams();
+  let history = useHistory();
 
-  // TODO: use useEffect hook to get data from api
+  useEffect(() => {
+    axios
+      .get(`${API}/furniture-pieces/${id}`)
+      .then((response) => {
+        setFurniturePiece(response.data.payload);
+        console.log(furniturePiece);
+      })
+      .catch((e) => {
+        console.error(e);
+        history.push("/not-found");
+      });
+  }, []);
 
-  // TODO: create a deleteHandler to send req to api
+  const handleDelete = async () => {
+    try {
+      const response = await axios.delete(`${API}/furniture-pieces/${id}`);
+      history.push("/furniture");
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <section className="FurnitureDetail">
@@ -27,8 +42,7 @@ function FurnitureDetails() {
         <p>{furniturePiece.year}</p>
         <p>{furniturePiece.model_number}</p>
         <div>
-          {/* TODO: add deleteHandler to delete button */}
-          <button>Delete</button>
+          <button onClick={handleDelete}>Delete</button>
         </div>
       </article>
     </section>

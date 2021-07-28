@@ -1,17 +1,24 @@
-import { useState } from "react";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import Furniture from "./Furniture";
+import { apiURL } from "../util/apiURL.js";
+
+const API = apiURL();
 
 function FurniturePieces(props) {
-  const [furniturePieces, setFurniturePieces] = useState([
-    // TODO: don't forget to delete this after creating axios call!!!
-    {
-      id: 1,
-      name: "Googoobund",
-      price: 13.0,
-    },
-  ]);
+  const [furniturePieces, setFurniturePieces] = useState([]);
 
-  // TODO: some way to update the state (useEffect)
+  useEffect(() => {
+    axios
+      .get(`${API}/furniture-pieces`)
+      .then(
+        (response) => {
+          setFurniturePieces(response.data.payload);
+        },
+        (error) => console.log("get", error)
+      )
+      .catch((e) => console.warn("catch", e));
+  }, []);
 
   return (
     <section className="FurniturePieces">

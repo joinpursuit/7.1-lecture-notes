@@ -1,34 +1,57 @@
 import { useState } from "react";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+import { apiURL } from "../util/apiURL.js";
+
+const API = apiURL();
 
 function FurnitureNewForm(props) {
   const [furniturePiece, setFurniturePiece] = useState({
     name: "",
-    price: null,
+    price: 0,
     description: "",
-    is_flat_pack: null,
-    year: null,
-    model_number: null,
+    is_flat_pack: 0,
+    year: 0,
+    model_number: 0,
   });
+  let history = useHistory();
 
   // TODO: create a function to create new piece using axios to api
+  const addFurniturePiece = (newFurniturePiece) => {
+    axios
+      .post(`${API}/furniture-pieces`, newFurniturePiece)
+      .then(
+        () => {
+          history.push("/furniture");
+        },
+        (error) => console.error(error)
+      )
+      .catch((e) => console.warn("catch", e));
+  };
 
-  // TODO: add a text change handler
+  const handleTextChange = (event) => {
+    setFurniturePiece({
+      ...furniturePiece,
+      [event.target.id]: event.target.value,
+    });
+    console.log(furniturePiece);
+  };
 
-  // TODO: add submit handler
-  // TODO: call a function to add the furniture piece,
-  // addFurniturePiece
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    addFurniturePiece(furniturePiece);
+  };
 
   return (
     <section className="NewFurniturePiece">
-      {/* TODO: add submit handler to form */}
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="model_number">Model Number</label>
         <input
           id="model_number"
           type="number"
           value={furniturePiece.model_number}
           placeholder="0"
-          // TODO: on change text handler onChange={}
+          onChange={handleTextChange}
         />
         <label htmlFor="name">Name</label>
         <input
@@ -36,7 +59,7 @@ function FurnitureNewForm(props) {
           type="text"
           value={furniturePiece.name}
           placeholder="Name of furniture piece"
-          // TODO: on change text handler onChange={}
+          onChange={handleTextChange}
         />
         <label htmlFor="description">Description</label>
         <input
@@ -44,7 +67,7 @@ function FurnitureNewForm(props) {
           type="TEXT"
           value={furniturePiece.description}
           placeholder="Describe the piece"
-          // TODO: on change text handler onChange={}
+          onChange={handleTextChange}
         />
         <label htmlFor="price">Price</label>
         <input
@@ -52,7 +75,7 @@ function FurnitureNewForm(props) {
           type="number"
           value={furniturePiece.price}
           placeholder="0"
-          // TODO: on change text handler onChange={}
+          onChange={handleTextChange}
         />
         <label htmlFor="year">Year</label>
         <input
@@ -60,14 +83,15 @@ function FurnitureNewForm(props) {
           type="number"
           value={furniturePiece.year}
           placeholder="0"
-          // TODO: on change text handler onChange={}
+          onChange={handleTextChange}
         />
         <label htmlFor="is_flat_pack">Flat Pack?</label>
         <input
           id="is_flat_pack"
           type="checkbox"
           value={furniturePiece.is_flat_pack}
-          // TODO: on change text handler onChange={}
+          onChange={handleTextChange}
+          // TODO add checkbox change
         />
         <br />
         <input type="submit" />
