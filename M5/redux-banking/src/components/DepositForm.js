@@ -1,12 +1,31 @@
+import { deposit, withdrawal } from "../actions/balanceActions";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+
 const DepositForm = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(e.nativeEvent.submitter.name);
+  const dispatch = useDispatch();
+  const [amount, setAmount] = useState(0);
+
+  const handleChange = (e) => {
+    setAmount(Number(e.target.value));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (e.nativeEvent.submitter.name === "deposit") {
+      // if we hit the deposit button, dispatch a deposit action
+      dispatch(deposit(amount));
+    } else {
+      // else, dispatch a withdrawal action
+      dispatch(withdrawal(amount));
+    }
+
+    console.log();
+  };
   return (
     <form onSubmit={handleSubmit}>
-      <input type="number" />
+      <input type="number" value={amount} onChange={handleChange} />
       <button type="submit" name="deposit">
         Deposit
       </button>
