@@ -53,12 +53,12 @@ To see how we accomplish this, let's take a look at our app's architecture. The 
 
 ## Implementation Checklist
 
-1. Define posts action types and actions
-1. Define a posts reducer
-1. Define a root reducer
 1. Create the redux store
-1. Wrap the `App` component in a `Provider` and pass in the store
-1. Implement the posts reducer and posts actions in our React components
+2. Wrap the `App` component in a `Provider` and pass in the store
+3. Define a root reducer
+4. Define a posts reducer
+5. Define posts action types and actions
+6. Implement the posts reducer and posts actions in our React components
 
 ## `store/` and `index.js`
 
