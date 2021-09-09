@@ -78,16 +78,24 @@ Let's take a look at our `postsReducer` for a moment:
 ```js
 import { ADD_POST, ADD_POSTS } from "../actions/actionTypes";
 
-const initialState = {
-  posts: [],
+const initialState = [];
+
+const post = (post) => {
+  return {
+    userId: null,
+    id: post.id,
+    title: post.title,
+    body: null,
+  };
 };
 
 const posts = (state = initialState, action) => {
+  Object.freeze(state);
   switch (action.type) {
     case ADD_POST:
-      return { ...state.posts, ...{ [action.payload.id]: action.payload } };
+      return [...state, post(action.payload)];
     case ADD_POSTS:
-      return { ...state.posts, ...action.payload };
+      return [...state, ...action.payload];
     default:
       return state;
   }
