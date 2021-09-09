@@ -32,6 +32,15 @@ Clone this repo
 `npm start`
 ```
 
+### Implementation Checklist
+
+1. Define posts action types and actions
+1. Define a posts reducer
+1. Define a root reducer
+1. Create the redux store
+1. Wrap the `App` component in a `Provider` and pass in the store
+1. Implement the posts reducer and posts actions in our React components
+
 # App Architecture
 
 To see how we accomplish this, let's take a look at our app's architecture. The other folders include our standard Create React App utilities. We're interested in the `src/` folder's structure, which is as follows:
