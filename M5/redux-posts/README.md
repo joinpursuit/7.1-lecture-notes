@@ -5,8 +5,7 @@ In this lesson we will be building a more complex Redux app with React using the
 ## Objectives
 
 - Demonstrate Pure function implementation best practices when working with arrays and objects
-- Use [`spread, concat, and slice`](https://egghead.io/lessons/react-redux-avoiding-array-mutations-with-concat-slice-and-spread) to reassign object key values without mutating state
-- Use `map` to return a new updated state object
+- Use [`spread, concat, slice, and map`](https://egghead.io/lessons/react-redux-avoiding-array-mutations-with-concat-slice-and-spread) to reassign object key values without mutating state
 
 ## JSON Placeholder API App Introduction
 
@@ -32,15 +31,6 @@ Clone this repo
 `npm start`
 ```
 
-### Implementation Checklist
-
-1. Define posts action types and actions
-1. Define a posts reducer
-1. Define a root reducer
-1. Create the redux store
-1. Wrap the `App` component in a `Provider` and pass in the store
-1. Implement the posts reducer and posts actions in our React components
-
 # App Architecture
 
 To see how we accomplish this, let's take a look at our app's architecture. The other folders include our standard Create React App utilities. We're interested in the `src/` folder's structure, which is as follows:
@@ -59,6 +49,16 @@ To see how we accomplish this, let's take a look at our app's architecture. The 
 - `store/`
   - `index.js`
 - `index.js`
+
+
+## Implementation Checklist
+
+1. Define posts action types and actions
+1. Define a posts reducer
+1. Define a root reducer
+1. Create the redux store
+1. Wrap the `App` component in a `Provider` and pass in the store
+1. Implement the posts reducer and posts actions in our React components
 
 ## `store/` and `index.js`
 
