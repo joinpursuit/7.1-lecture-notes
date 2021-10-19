@@ -14,7 +14,6 @@ const { runMain } = require("module");
 // an array prime numbers
 
 // tell if a number is prime or not
-// O(sqrt(n))
 const isPrime = (num) => {
   if (!Number.isInteger(num)) {
     return false;
@@ -37,7 +36,6 @@ console.log(isPrime(4));
 console.log(isPrime(25));
 
 // find all of the primes between 2 - given integer
-// O(n(sqrt(n)))
 const collectPrimes = (limit) => {
   let primes = [];
 
