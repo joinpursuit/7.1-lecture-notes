@@ -47,7 +47,7 @@ const addTwo = (x) => {
 const addTwoToEach = (arr) => {
   // callback which will be called within the function execution
   // here, map is the higher order function: takes a function as arg
-  // and addTwoToEach is the callback ^^ which is the argument referred to here
+  // and addTwo is the callback ^^ which is the argument referred to here
   return arr.map(addTwo);
 };
 
