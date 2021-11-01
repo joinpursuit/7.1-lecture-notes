@@ -28,24 +28,22 @@ class Animal {
   // A: By using the constructor method!
   // constructor method is available to all classes
   // reserved word
-  constructor(age, color, isPredator) {
+  constructor(age, color, isPredator, name) {
     this.age = age;
     this.color = color;
     this.isPredator = isPredator;
+    this.name = name;
   }
   // The underscore (_) denotes that _move() is a private method
   // private methods can only be called from within the class
-  static _move() {
+  move() {
     console.log("zippy zoppy zappy!");
-    // this is a reference to the current Animal
-    return this;
   }
   // lack of underscore denotes that flex() is a public method
   // public methods can be called on the class
-  static flex() {
+  flex() {
     console.log("hmmmmmm!!!");
-    this._move();
-    return this;
+    this.move();
   }
   // Setter function: sets a class's property using a built method
   // Getters + Setters are an example of encapsulation
@@ -67,15 +65,14 @@ const bubby = new Animal(150, "calico", false);
 const bobby = new Animal(149, "speckled gray", true);
 const babby = new Animal();
 
-console.log(bubby, bobby);
+// console.log(bubby, bobby);
 
 bubby.setIsPredator(false);
-console.log(bubby.setAge(150));
-console.log(bubby.age);
-console.log(bubby.getAge());
+// console.log(bubby.setAge(150));
+// console.log(bubby.getAge());
 
-console.log(Math.abs(-1));
-console.log(Animal.flex());
+// example of a static function
+// console.log(Math.abs(-1));
 
 // Chaining methods e.g: array.map(<do something>).join().split().....
 // can move
@@ -92,4 +89,32 @@ console.log(Animal.flex());
 // EquusGenus inherits from Mammal
 
 // MiniatureHorse inherits from EquusGenus
-class MiniatureHorse {}
+class MiniatureHorse extends Animal {
+  // Do we need constructor?
+  constructor(age, color, isPredator, name, isPonyBraided) {
+    // Must call super constructor in derived class
+    // before accessing 'this' or
+    // returning from derived constructor
+    super(age, color, isPredator, name);
+    this.isPonyBraided = isPonyBraided;
+  }
+
+  move() {
+    console.log("clip clop!!");
+    // this refernce the current instance of the class
+    return this;
+  }
+
+  winny() {
+    console.log("neigh!! neigh!!");
+    // super references the parent of the current instance of the class
+    super.flex();
+  }
+}
+
+const bibby = new MiniatureHorse(130, "green", false, "Bibby", true);
+
+console.log(bibby);
+// console.log(bibby.age, bibby.color, bibby.isPredator, bibby.name);
+// console.log(bibby.flex());
+// console.log(bibby.winny());
